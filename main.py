@@ -8,6 +8,8 @@ def main():
     print("Screen height:", SCREEN_HEIGHT)
 
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    dt = 0      # Delta time
+    clock = pygame.time.Clock()
 
     game = True
     while game == True:
@@ -18,6 +20,7 @@ def main():
         screen.fill((0, 0, 0))
 
         pygame.display.flip() # Refresh the screen
+        dt = clock.tick(60) / 1000
 
         
 
