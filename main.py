@@ -3,6 +3,8 @@ from constants import *
 from player import *
 from asteroid import *
 from asteroidfield import *
+from circleshape import *
+import sys
 
 def main():
     pygame.init()
@@ -39,6 +41,13 @@ def main():
                 return  # Exit game
             
         updatable.update(dt)    # Updates updatable sprites
+        
+        # Collision check between player and asteroids
+        for asteroid in asteroids:
+            if player1.collision_check(asteroid):
+                print("Game Over!")
+                sys.exit()
+
         screen.fill((0, 0, 0))  # Clear screen to black
 
         # Draw all drawable sprites
